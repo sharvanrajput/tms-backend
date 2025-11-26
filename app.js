@@ -6,10 +6,13 @@ import cors from "cors"
 
 const app = express()
 dotenv.config()
-  
+
 app.use(cors({
-  origin: "http://localhost:5173"
-}))
+  origin: "*",   // Allow all origins
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  credentials: true
+}));
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
